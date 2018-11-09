@@ -18,7 +18,7 @@ class Station
     @trains.select { |train| train.type == "cargo"}
   end
 
-  def send_train(number)
-    @trains.delete_if { |trains| train.number == number}
+  def send_train(train)
+    @trains.delete(train)
   end
 end
