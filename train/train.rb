@@ -21,7 +21,7 @@ class Train
   end
 
   def drop_vagon
-    @amount_vgns -= 1 if @speed == 0
+    @amount_vgns -= 1 if @speed == 0 && @amount_vgns > 0
   end
 
   def accept_route(route)
@@ -30,7 +30,7 @@ class Train
   end
 
   def fwd
-    @position += 1 if @position < @route.size 
+    @position += 1 if less
   end
 
   def rev
@@ -38,14 +38,20 @@ class Train
   end
 
   def curr_st
-    @route[@position]
+    @route.stations[@position]
   end
 
   def prev_st
-    @route[@position - 1]
+    @route.stations[@position - 1] if @position > 0
   end
 
   def next_st
-    @route[@position + 1]
+    @route.stations[@position + 1] if less
+  end
+
+  private
+
+  def less
+    @position < @route.stations.size - 1
   end
 end
