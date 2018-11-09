@@ -9,7 +9,7 @@ class Route
     @stations.insert(-2, station)
   end
 
-  def delete_station(name)
-    @stations.delete_if { |station| station.name == name }
+  def delete_station(station)
+    @stations.delete(station)
   end
 end
