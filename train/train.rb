@@ -16,7 +16,7 @@ class Train
     @speed = 0
   end
 
-  def get_vagon
+  def add_vagon
     @amount_vgns += 1 if @speed == 0
   end
 
@@ -29,29 +29,29 @@ class Train
     @position = 0
   end
 
-  def fwd
-    @position += 1 if less
+  def forward
+    @position += 1 if less?
   end
 
-  def rev
+  def revers
     @position -= 1 if @position > 0
   end
 
-  def curr_st
+  def current_station
     @route.stations[@position]
   end
 
-  def prev_st
+  def previous_station
     @route.stations[@position - 1] if @position > 0
   end
 
-  def next_st
-    @route.stations[@position + 1] if less
+  def next_station
+    @route.stations[@position + 1] if less?
   end
 
   private
 
-  def less
+  def less?
     @position < @route.stations.size - 1
   end
 end

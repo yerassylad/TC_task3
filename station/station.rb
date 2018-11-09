@@ -11,11 +11,11 @@ class Station
   end
 
   def get_pass_trains
-    @trains.select { |train| train.type == "cargo"}
+    @trains.select { |train| train.type == "pass"}
   end
 
   def get_cargo_trains
-    @trains.select { |train| train.type == "pass"}
+    @trains.select { |train| train.type == "cargo"}
   end
 
   def send_train(number)
