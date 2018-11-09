@@ -38,14 +38,14 @@ class Train
   end
 
   def curr_st
-    @position
+    @route[@position]
   end
 
   def prev_st
-    @position - 1
+    @route[@position - 1]
   end
 
   def next_st
-    @position + 1
+    @route[@position + 1]
   end
 end
